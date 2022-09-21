@@ -1,0 +1,136 @@
+<HTML>
+   <HEAD>
+   <TITLE>Units Converter</TITLE>
+   <SCRIPT LANGUAGE="JavaScript">
+
+   
+   //DEFINE METHODS
+   function constants(conv) {
+       var numE = 7;
+             conv[0] = 1.000 ;
+   // eV
+             conv[1] = 2.7211399E+01 ;
+   // kJ/mol
+             conv[2] = 2.6255002E+03 ;
+   // kcal/mol
+             conv[3] = conv[2]/4.184 ;
+   // cm-1
+             conv[4] = 2.1947463E+05 ;
+   // V
+             conv[5] = 2.6255002E+06/96484.6 ;
+   // K
+             conv[6] =3.1577709E+05 ;
+   // Boltzman
+             conv[7] = -conv[6] ;
+               return numE;
+   }
+   
+   function displayInfo(form,field) {
+   // find field index
+      for (var i=0; i<=nfields; i++) {
+      if ( form.elements[i].name == field ) {
+      idx = i ;
+      break;
+        }
+   }
+   // find number of characters in input string for significant figure functions
+       nchars = form.elements[idx].value.length +1 ;
+   
+   // calculate the base energy in Hartrees
+     if ( idx != 7) {
+      energy = form.elements[idx].value/conv[idx];
+                               } else {
+      energy = Math.log(form.elements[idx].value)*298.15/conv[idx];
+                         }
+   
+   // convert to other units
+   for (var i=0; i<=nfields; i++) {
+      if ( i != idx ) {
+           if ( i != 7) {
+            form.elements[i].value = trunc(energy*conv[i],nchars) ;
+                      } else {
+           form.elements[i].value = trunc(Math.exp(energy*conv[i]/298.15),4) ;
+                      }
+        }
+      }
+      boltzman()
+   }
+   
+   function boltzman() {
+   // calculate boltzman fractions and voltage for general conditions
+         var T = document.Boltzman.T.value ;
+         var gj = document.Boltzman.gj.value ;
+         var gi = document.Boltzman.gi.value ;
+         var z= document.Boltzman.z.value ; 
+         var r = Math.exp(energy*conv[7]/T)*gj/gi ;
+         document.Boltzman.flow.value = trunc(1/(r+1)*100.0,3) ;
+            var fup = trunc(r/(r+1)*100.0,3) ;
+       if ( fup > 1e-20 ) {
+                document.Boltzman.fup.value = fup 
+                                 } else {
+                document.Boltzman.fup.value = 0 }
+   // Put in diagram poulations
+             var all = "-oooooooooo" ;
+             var molecules = Math.floor(r/(r+1)*10.0+0.5) ;
+               document.Boltzman.up.value = all.substring(0,molecules+1) + "-" ;
+               document.Boltzman.low.value = all.substring(0,11-molecules) + "-" ;
+   // Voltage for z != 1
+         document.Boltzman.V.value = trunc(energy*conv[5]/z,nchars) ;
+   }
+   
+   // Significant figure functions
+   function ord(x) {
+      return Math.floor(Math.log(Math.abs(x+1e-35))/2.303)
+   }
+   // Truncate to n sign. figures
+   function trunc(x,n) {
+      return Math.floor(x*Math.pow(10,-ord(x)+n-1)+.5)/Math.pow(10,-ord(x)+n-1)
+   }
+
+   // MAIN variable declarations
+    var energy = 0.000;
+    var nchars = 0;
+    var conv = new Array();
+    var nfields = constants(conv);
+   
+
+    
+   // STOP HIDING FROM OTHER BROWSERS -->
+   </SCRIPT>
+   </HEAD>
+
+
+   <BODY>
+   <H2>Units Converter</H2>
+   Text here
+   
+   <H3>Energy</H3>
+
+   <P>
+      <FORM NAME="Hartree" METHOD=POST>
+         <INPUT TYPE="number" NAME="H" VALUE=0 onChange="displayInfo(this.form,this.name);"> Hartrees<BR>
+         <INPUT TYPE="text" NAME="eV" VALUE=0 onChange="displayInfo(this.form,this.name);"> eV<BR>
+         <INPUT TYPE="text" NAME="kJ/mol" VALUE=0 onChange="displayInfo(this.form,this.name);"> kJ/mol<BR>
+         <INPUT TYPE="text" NAME="kcal/mol" VALUE=0 onChange="displayInfo(this.form,this.name);"> kcal/mol<BR>
+         <INPUT TYPE="text" NAME="cm-1" VALUE=0 onChange="displayInfo(this.form,this.name);"> cm<sup>-1</sup><BR>
+         <INPUT TYPE="text" NAME="V" VALUE=0 onChange="displayInfo(this.form,this.name);"> V for 1e<sup>-</sup> transfer<BR>
+         <INPUT TYPE="text" NAME="K" VALUE=0 onChange="displayInfo(this.form,this.name);"> K (equivalent temerature)<BR>
+         <INPUT TYPE="text" NAME="B" VALUE=0 onChange="displayInfo(this.form,this.name);"> Boltzman population ratio at 298.15K
+         </FORM>
+   </P> <br>
+
+
+   <H3>Length</H3>
+   <P>
+   </P> <br>
+
+   <H3>XXX</H3>
+   <P>
+   </P> <br>
+
+   <H3>XXX</H3>
+   <P>
+   </P> <br>
+
+   </BODY>
+   </HTML>

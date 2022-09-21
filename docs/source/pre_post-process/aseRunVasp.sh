@@ -1,3 +1,14 @@
+#!/bin/bash
+
+addEleNAtHere=0.0
+
+if [ -f "./CONTCAR" ];then
+mkdir conCal && cp CONTCAR ./conCal/last.vasp && if [ -f WAVECAR ];then mv WAVECAR ./conCal/;fi && cd conCal
+fi
+
+strName=`ls *.vasp *.xsd *.cif POSCAR CONTCAR 2>/dev/null |sed "s/other.xsd//g"`
+
+cat > aseRunVasp.py << \EOF
 #!/usr/bin/env python
 import os
 import time
@@ -112,3 +123,10 @@ with open(outName, "r") as f:
 usedT = time.time() - startTime
 
 print(f"final energy is {finalE}eV, using time {usedT}s.")
+
+
+EOF
+
+
+r= ; sed -i "s//$r/g" aseRunVasp.py
+r= ; sed -i "s//$r/g" aseRunVasp.py

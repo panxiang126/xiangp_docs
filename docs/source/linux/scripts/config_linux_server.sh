@@ -67,3 +67,13 @@ dnDir $HOME/downDir_$accouIdent
 sourceFiledp_cpu $HOME/scripts/deepmd_cpu
 sourceFiledp_gpu $HOME/scripts/deepmd_gpu
 ' > envsDir
+
+
+
+# pyDir=`cat ~/scripts/envsDir |grep asePyDir|awk '{print $2}'` && pyDir=`eval ls $pyDir`
+# dnDir=`cat ~/scripts/envsDir |grep dnDir|awk '{print $2}'`    && dnDir=`eval cd $dnDir && pwd`
+
+
+
+
+

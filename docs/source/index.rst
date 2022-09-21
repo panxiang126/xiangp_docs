@@ -14,7 +14,7 @@
 因本人水平有限, 不足之处在所难免, 敬请各位老师同学指正!
 
 
-:download:`下载源码 <https://github.com/panxiang126/notebook/archive/refs/heads/Chinese.zip>`.
+:download:`下载源码 <https://github.com/panxiang126/xiangp_docs/archive/refs/heads/chinese.zip>`.
 
 
 联系我: panxiang126@gmail.com
@@ -35,7 +35,12 @@ English Document: https://pan-docs.readthedocs.io/en/english
    
    rst/rst.rst
    tools/tools.rst
+
+   linux/linux.rst
+   hpc/hpc.rst
+
    pre_post-process/pre_post-process.rst
+
    dft/dft.rst
    vasp/vasp.rst
    ms/ms.rst
@@ -44,10 +49,12 @@ English Document: https://pan-docs.readthedocs.io/en/english
    nwchem/nwchem.rst
    lammps/lammps.rst
    plumed/plumed.rst
-   hpc/hpc.rst
+   
    dp/dp.rst
-   matplotlib/matplotlib.rst   
-   linux/linux.rst
+
+   matplotlib/matplotlib.rst 
    ref/ref.rst
+
    examples/examples.rst
+
    xiangp/xiangp.rst

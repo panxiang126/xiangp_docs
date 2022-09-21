@@ -752,7 +752,7 @@ Tips: "_" 不可或缺.
 
 .. _超链接:
 
-超链接的位置，只在本文档内有效.
+超链接的位置.
 
 ::
 
@@ -762,10 +762,10 @@ Tips: "_" 不可或缺.
 
  .. _超链接:
 
- 超链接的位置, 只在本文档内有效.
+ 超链接的位置.
 
 
-4. 匿名超链接
+1. 匿名超链接
 -----------------
 
 项目主页：`GitHub`__.
@@ -1158,6 +1158,9 @@ __ 这_
 十二、编写环境
 =================
 
+我是用 VScode 进行文本编辑, 预览文档需要用到 python 中的包,
+最后用 GitHub Desktop 同步到 GitHub 中托管.
+
 1. 下载安装
 -----------------
 
@@ -1165,47 +1168,90 @@ __ 这_
    默认安装.
  - `Python 下载页面 <https://www.python.org/downloads>`_,
    在安装首页勾选 "Add Python to PATH", 其他默认.
- - `Git 下载页面 <https://git-scm.com/downloads>`_,
+ - `GitHub Desktop 下载页面 <https://desktop.github.com>`_,
    默认安装.
- - `本文档源码下载 <https://github.com/panxiang126/notebook/archive/refs/heads/Chinese.zip>`_,
-   下载后解压至合适的位置.
 
-1. 配置
+2. 配置
 -----------------
 
- - 用 VScode 打开解压后的 notebook-Chinese 目录
- - 在 VScode 中安装这两个插件:
+ - 打开 GitHub Desktop, (注册并)登录到你的 GitHub 账户.
+ - 点击 Clone a repository from the Internet..., 选择 URL,
+   填写 URL: ``https://github.com/panxiang126/xiangp_docs``, 
+   记住下方 Local Path 中存放文件的位置.
+ - 点击菜单栏的 Repository — Push — Fork this repository — Continue.
+ - 在 Current branch 下拉中选择 chinese.
+ - 点击 Open in Visual Studio Code, 在弹出的提示框中选择信任.
 
-  * reStructuredText
-  * reStructuredText Syntax highlighting
+ - 在 VScode 中安装这两个插件: ``reStructuredText`` 和 ``reStructuredText Syntax highlighting``
 
- - python 安装以下库：
+ - python 安装以下库：``pip install sphinx esbonio docutils doc8 sphinx_rtd_theme``
 
-  - pip install sphinx esbonio docutils doc8 sphinx_rtd_theme
+ - 返回到 VScode, 现在你可以在 XIANGPAN_DOCS/docs/source/ 下看到本文档所有的源码,
+   按照你的需求进行相应的修改.
+  
+ -  编辑完成, 按 ``ctrl+s`` 保存. 按 ``ctrl+shift+r`` 显示预览,
+    或者按 ``ctrl+k`` 再按 ``ctrl+r`` 在侧边预览,
+    也可以直接在浏览器打开 ``path_to_save/../build/html/html/index.html``
 
- - 按 ctrl+shift+r 显示预览 (需要先保存),
-   或者先按 ctrl+k 再按 ctrl+r 在侧边预览,
-   也可以直接在浏览器打开
-   path_to_save/notebook-Chinese/docs/source/_build/html/html/index.html
-
- - 在开始菜单中找到 Git Bash, 打开并执行以下两条命令:
-   (记得将用户名和邮箱换成你自己的)
-   git config --global user.name "panxiang126"
-   git config --global user.email panxiang126@gmail.com
-
-
-
-1. 使用 Git 
------------------
+.. tip::
+  由于网络原因，此处可能会失败, 你可以多试几次; 或者参考 科学上网_.
 
 
+3. 提交 Pull requests
+----------------------------
+在你完成所有的修改后, 返回到 GitHub Desktop,
+点击左下角的 Commit to chinese
+然后点击菜单栏的 Repository — Push
 
-在开始菜单中找到 Git Bash, 打开并执行以下两条命令:
-(记得将用户名和邮箱换成你自己的)
+点击右侧的 Create Pull Request, 然后跳转到 GitHub 网页版,
+描述你的修改的内容, 然后点击 Create Pull Request 提交.
 
- - git config --global user.name "panxiang126"
- - git config --global user.email panxiang126@gmail.com
+在我同意你的 PR 后, 你更改的内容就会被同步到本文档中了.
+
+.. tip::
+  由于网络原因，此处可能会失败, 你可以多试几次; 或者参考 科学上网_.
 
 
-4. 提交 Pull requests
----------------------------- 
+
+.. _科学上网:
+
+
+4. 科学上网
+----------------------------
+
+鉴于国内访问 GitHub 存在十, 推荐安装
+
+我用的是 ``Ghelper``, 浏览器插件下载: googlehelper.net 或者 :download: `下载备用版 <./Ghelper-v2.6.2.crx>`.
+
+ - 免费版:
+
+  对于手机和电脑客户端, 它也提供了
+
+
+ - VIP版:
+
+  月费: ¥ 15.99; 浏览器插件最大同时在线数: 四个 (可以两个人共同购买)
+
+  建议以下添加为直连:: 
+
+    wiley.com acs.org
+    springer.com
+    rsc.org
+    sciencedirect.com
+    nature.com
+    science.org
+    bilibili.com
+    researchrabbitapp.com
+    jdftx.org
+    aje.com
+    orcid.org
+    bigbrosci.com
+    oracle.com
+    webofscience.com
+    webofknowledge.com
+    aps.org
+    vasp.at
+    p4vasp.at
+
+  手机和电脑可以用 Clash, 每月流量: 300.00 GB, 下载安装包和订阅链接可以在插件的``控制面板—手机代理``页面找到.
+
