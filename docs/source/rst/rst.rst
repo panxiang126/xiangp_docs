@@ -1158,8 +1158,9 @@ __ 这_
 十二、编写环境
 =================
 
-我是用 VScode 进行文本编辑, 预览文档需要用到 python 中的包,
-最后用 GitHub Desktop 同步到 GitHub 中托管.
+我用 VScode 进行代码编写,
+托管到 GitHub,
+用 Read the Docs 发布本文档.
 
 1. 下载安装
 -----------------
@@ -1171,30 +1172,34 @@ __ 这_
  - `GitHub Desktop 下载页面 <https://desktop.github.com>`_,
    默认安装.
 
+.. note::
+
+  安装 GitHub Desktop 是为了将代码同步到 GitHub, 对新手比较友好.
+  如果你熟悉 Git, 配合 VScode 使用起来更加方便, 但此不作详细介绍.
+
 2. 配置
 -----------------
 
+ - 在 python 中安装以下库: ``pip install sphinx esbonio docutils doc8 sphinx_rtd_theme``
+
  - 打开 GitHub Desktop, (注册并)登录到你的 GitHub 账户.
  - 点击 Clone a repository from the Internet..., 选择 URL,
-   填写 URL: ``https://github.com/panxiang126/xiangp_docs``, 
-   记住下方 Local Path 中存放文件的位置.
+   填写入 ``https://github.com/panxiang126/xiangp_docs``, 
+   并记住下方 ``Local Path`` 中文件存放位置.
  - 点击菜单栏的 Repository — Push — Fork this repository — Continue.
  - 在 Current branch 下拉中选择 chinese.
  - 点击 Open in Visual Studio Code, 在弹出的提示框中选择信任.
 
- - 在 VScode 中安装这两个插件: ``reStructuredText`` 和 ``reStructuredText Syntax highlighting``
+ - 你可以在 XIANGPAN_DOCS/docs/source/ 下看到本文档的所有源码,
+   现在按照你的需求进行相应的修改.
 
- - python 安装以下库：``pip install sphinx esbonio docutils doc8 sphinx_rtd_theme``
+ - 如果你在编写的过程中想要进行预览,
+   在 VScode 中安装这两个插件: ``reStructuredText`` 和 ``reStructuredText Syntax highlighting``
 
- - 返回到 VScode, 现在你可以在 XIANGPAN_DOCS/docs/source/ 下看到本文档所有的源码,
-   按照你的需求进行相应的修改.
-  
- -  编辑完成, 按 ``ctrl+s`` 保存. 按 ``ctrl+shift+r`` 显示预览,
+ -  安装完成后, 重启 VScode.
+    在任意 rst 文档界面按 ``ctrl+shift+r`` 即可显示预览 (编辑过程中记得先保存),
     或者按 ``ctrl+k`` 再按 ``ctrl+r`` 在侧边预览,
     也可以直接在浏览器打开 ``path_to_save/../build/html/html/index.html``
-
-.. tip::
-  由于网络原因，此处可能会失败, 你可以多试几次; 或者参考 科学上网_.
 
 
 3. 提交 Pull requests
@@ -1209,49 +1214,28 @@ __ 这_
 在我同意你的 PR 后, 你更改的内容就会被同步到本文档中了.
 
 .. tip::
-  由于网络原因，此处可能会失败, 你可以多试几次; 或者参考 科学上网_.
+  由于网络原因, 使用 GitHub Desktop 的过程中可能会经常失败, 你可以多试几次; 或者参考 科学上网_.
 
 
 
 .. _科学上网:
 
-
 4. 科学上网
 ----------------------------
 
-鉴于国内访问 GitHub 存在十, 推荐安装
+.. caution::
+  撰写本节的初衷只是便于访问 GitHub, Google Scholar 等学术资源, 切勿用于其他非法途径.
 
-我用的是 ``Ghelper``, 浏览器插件下载: googlehelper.net 或者 :download: `下载备用版 <./Ghelper-v2.6.2.crx>`.
+``Ghelper``
+~~~~~~~~~~~~~~~~~~~~~~
+ - 上网方式: 浏览器插件
+   也提供了订阅链接, 可以在手机和电脑安装 Clash 配合使用
+ - 浏览器插件: `插件下载页面 <googlehelper.net>`_,
+   或者 :download:`点击下载备用版本 <./Ghelper-v2.6.2.crx>`
+ - 手机和电脑: 可以在安装浏览器插件后在插件的控制面板-手机代理页面找到
+ - 月费: ¥ 15.99 (可以几个人一起购买)
+ - 浏览器插件最大同时在线数: 四个
+ - 订阅流量: 300G 每月
+ - 建议配置以下网站直连: wiley.com acs.org springer.com rsc.org sciencedirect.com nature.com science.org bilibili.com jdftx.org orcid.org webofscience.com webofknowledge.com aps.org vasp.at
 
- - 免费版:
-
-  对于手机和电脑客户端, 它也提供了
-
-
- - VIP版:
-
-  月费: ¥ 15.99; 浏览器插件最大同时在线数: 四个 (可以两个人共同购买)
-
-  建议以下添加为直连:: 
-
-    wiley.com acs.org
-    springer.com
-    rsc.org
-    sciencedirect.com
-    nature.com
-    science.org
-    bilibili.com
-    researchrabbitapp.com
-    jdftx.org
-    aje.com
-    orcid.org
-    bigbrosci.com
-    oracle.com
-    webofscience.com
-    webofknowledge.com
-    aps.org
-    vasp.at
-    p4vasp.at
-
-  手机和电脑可以用 Clash, 每月流量: 300.00 GB, 下载安装包和订阅链接可以在插件的``控制面板—手机代理``页面找到.
-
+其他好用的梯子欢迎在此补充.

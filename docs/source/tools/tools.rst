@@ -1,32 +1,54 @@
-=============
+==========================
 常用工具
-=============
+==========================
+这部分记录了一些常用的工具, 
+包括.
 
 
-有趣的网站：
+**修订日志**
 
-生成头像:
+==========  ==========  ==============================
+时间          版本        修订内容
+==========  ==========  ==============================
+2022.9.20     初稿        向盼提交了框架
+2022.9.25     1.0         向盼提交了初版
+==========  ==========  ==============================
 
- - `avataaars generator <https://getavataaars.com>`_
 
 
 一、元素周期表
 ===============
+.. image:: ./Periodic_Table_of_Elements_w_Chemical_Group_Block_PubChem.png
+   :width: 800px
 
-dashe
+在线网站:
+`RSC <https://www.rsc.org/periodic-table>`_ |
+`Pubchem  <https://pubchem.ncbi.nlm.nih.gov/periodic-table/>`_ |
+`Ptable <https://ptable.com/>`_
+ 
+
+元素的信息查询:
+
+https://github.com/deepmodeling/dpgen/pull/893/files
 
 
 二、单位转换
 ===================================================
 
-:download:`常见单位转换 <./unit.html>`
+能量
+---------------
+.. raw:: html
+    :file: unit_energy.html
+
+长度
+----------------
+
+
+温度
+----------------
 
 
 
-三、格式转换
-=============
-
-https://www.zamzar.com/
 
 
 四、常用符号
@@ -118,6 +140,12 @@ Minus 是一个与连字符或破折号不同的字符，出现在数学表达�
 其他
 
  Å         Ångström      埃
+
+ °F
+
+ °C
+
+ °
 ==== ==== ============ ============
 
 
@@ -140,9 +168,18 @@ Minus 是一个与连字符或破折号不同的字符，出现在数学表达�
 
 3. Word 模板
 -------------
- - MS 
- - SI
- - CL
- - RS
+ -  :download:`Manuscript <./manuscript.docx>`.
+ -  :download:`SI <./SI.docx>`.
+ -  :download:`Cover Letter <./cover_letter.docx>`.
+ -  :download:`Response <./response.docx>`.
 
 
+
+网站
+===============
+
+热力学表: `NIST-JANAF Thermochemical Tables <https://janaf.nist.gov>`_
+
+卡通头像生成: `avataaars generator <https://getavataaars.com>`_
+
+在线格式转换: `zamzar <https://www.zamzar.com/>`_

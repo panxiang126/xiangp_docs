@@ -2,7 +2,7 @@
    <HEAD>
    <TITLE>Units Converter</TITLE>
    <SCRIPT LANGUAGE="JavaScript">
-   <!--HIDE FROM OTHER BROWSERS
+
    
    //DEFINE METHODS
    function constants(conv) {
@@ -86,7 +86,7 @@
    function trunc(x,n) {
       return Math.floor(x*Math.pow(10,-ord(x)+n-1)+.5)/Math.pow(10,-ord(x)+n-1)
    }
-   
+
    // MAIN variable declarations
     var energy = 0.000;
     var nchars = 0;
@@ -98,44 +98,22 @@
    // STOP HIDING FROM OTHER BROWSERS -->
    </SCRIPT>
    </HEAD>
+
+
    <BODY>
-   <H3>Energy Units Converter</H3>
-   Enter your energy value in the box with the appropriate units, then press "tab"
-   or click outside of the input box.
-   
-   Here is some xingpa
+
    <P>
-   <FORM NAME="Hartree" METHOD=POST>
-   <INPUT TYPE="text" NAME="H" VALUE=0 onChange="displayInfo(this.form,this.name);">Hartrees<BR>
-   <INPUT TYPE="text" NAME="eV" VALUE=0 onChange="displayInfo(this.form,this.name);">eV<BR>
-   <INPUT TYPE="text" NAME="kJ/mol" VALUE=0 onChange="displayInfo(this.form,this.name);">kJ/mol<BR>
-   <INPUT TYPE="text" NAME="kcal/mol" VALUE=0 onChange="displayInfo(this.form,this.name);">kcal/mol<BR>
-   <INPUT TYPE="text" NAME="cm-1" VALUE=0 onChange="displayInfo(this.form,this.name);">cm<sup>-1</sup><BR>
-   <INPUT TYPE="text" NAME="V" VALUE=0 onChange="displayInfo(this.form,this.name);">V for 1e<sup>-</sup> transfer<BR>
-   <INPUT TYPE="text" NAME="K" VALUE=0 onChange="displayInfo(this.form,this.name);">K (equivalent temerature)<BR>
-   <INPUT TYPE="text" NAME="B" VALUE=1 onChange="displayInfo(this.form,this.name);">Boltzman population ratio at 298.15K
-   </FORM>
-   <HR>
-   <H5>Boltzman Populations</H5>
-   Change the temperature and degeneracies:
-   <FORM NAME="Boltzman" METHOD=POST>
-   <TABLE>
-   <TR><TD><INPUT TYPE="text" NAME="T" SIZE=6 VALUE=298.15 onChange="boltzman();">K</TD>
-   <TD></TD><TD></TD></TR>
-   <TR><TD>
-   upper degeneracy=<INPUT TYPE="text" NAME="gj" SIZE="2" VALUE=1 onChange="boltzman();"></TD>
-   <TD><INPUT TYPE="text" NAME="fup" SIZE=7 VALUE=50.0 onFocus="blur();">%</TD>
-   <TD><INPUT TYPE="text" NAME="up" SIZE=12 VALUE="-ooooo-" onFocus="blur();"></TD></TR>
-   <TR><TD>
-   lower degeneracy=<INPUT TYPE="text" NAME="gi" SIZE="2" VALUE=1 onChange="boltzman();"></TD>
-   <TD><INPUT TYPE="text" NAME="flow" SIZE=7 VALUE=50.0 onFocus="blur();">%</TD>
-   <TD><INPUT TYPE="text" NAME="low" SIZE=12 VALUE="-ooooo-" onFocus="blur();"></TD></TR>
-   </TABLE>
-   <H5>Electrochemical Voltage</H5>
-   Change the number of electrons transferred, z=
-   <INPUT TYPE="text" NAME="z" SIZE=2 VALUE=1 onChange="boltzman();"><BR>
-   Then, V=
-   <INPUT TYPE="text" NAME="V" VALUE=0 onFocus="blur();">V<BR>
-   </FORM>
+      <FORM NAME="Hartree" METHOD=POST>
+         <INPUT TYPE="number" NAME="H" VALUE=0 onChange="displayInfo(this.form,this.name);"> Hartrees<BR>
+         <INPUT TYPE="text" NAME="eV" VALUE=0 onChange="displayInfo(this.form,this.name);"> eV<BR>
+         <INPUT TYPE="text" NAME="kJ/mol" VALUE=0 onChange="displayInfo(this.form,this.name);"> kJ/mol<BR>
+         <INPUT TYPE="text" NAME="kcal/mol" VALUE=0 onChange="displayInfo(this.form,this.name);"> kcal/mol<BR>
+         <INPUT TYPE="text" NAME="cm-1" VALUE=0 onChange="displayInfo(this.form,this.name);"> cm<sup>-1</sup><BR>
+         <INPUT TYPE="text" NAME="V" VALUE=0 onChange="displayInfo(this.form,this.name);"> V for 1e<sup>-</sup> transfer<BR>
+         <INPUT TYPE="text" NAME="K" VALUE=0 onChange="displayInfo(this.form,this.name);"> K (equivalent temerature)<BR>
+         <INPUT TYPE="text" NAME="B" VALUE=0 onChange="displayInfo(this.form,this.name);"> Boltzman population ratio at 298.15K
+         </FORM>
+   </P>
+   
    </BODY>
    </HTML>

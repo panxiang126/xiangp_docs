@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>Units Converter</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+// constants
+cons_pi = 3.141592653589793
+
+// https://physics.nist.gov/cuu/Constants/index.html
+// speed of light, m/s
+var cons_c = 299792458;
+// permeability of vacuum
+var cons_mu0 = 4.0e-7 * cons_pi;
+// gravitational constant
+var cons_Grav = 6.67430e-11;
+// Planck constant, J s
+var cons_hplanck = 6.62607015e-34;
+// elementary charge
+var cons_e = 1.602176634e-19;
+// electron mass
+var cons_me = 9.1093837015e-31;
+// proton mass
+var cons_mp = 1.67262192369e-27;
+// Avogadro number
+var cons_Nav = 6.02214076e23;
+// Boltzmann constant, J/K
+var cons_k = 1.380649e-23;
+// atomic mass unit, kg
+var cons_amu = 1.66053906660e-27;
+
+
+function conversion_factor(cf) {
+   var numE = 4;
+
+// eV
+         cf[0] = 1.0 ;
+// Hartree
+         cf[1] = cons_me * cons_e**3 / 16 / cons_pi**2 /(1 / cons_mu0 / cons_c**2)**2 / ( cons_hplanck / (2 * cons_pi))**2 ;
+// kJ
+         cf[2] = 1000.0 / cons_e ;
+// kcal
+         cf[3] = 4.184 * cf[2] ;
+// Rydberg
+         cf[4] = 0.5*cf[1] ;
+          
+   return numE;
+}
+
+
+function displayInfo(form,field) {
+
+// field index
+for (var i=0; i<=nfields; i++) {
+   if ( form.elements[i].name == field ) {
+      idx = i ;
+      break;
+   }
+}
+
+nchars = form.elements[idx].value.length + 6 ;
+energy = form.elements[idx].value*cf[idx];
+
+for (var i=0; i<=nfields; i++) {
+   form.elements[i].value = trunc(energy/cf[i],nchars);
+}
+}
+
+
+function conversion_factor_2(cf) {
+   var numE = 2;
+
+// eV_atom
+         cf[0] = 1.0 ;
+// kJ_mol
+         cf[1] = 2 ;
+// kcal_mol
+         cf[2] = 3 ;
+
+   return numE;
+}
+
+
+function displayInfo_2(form,field) {
+
+// field index
+for (var i=0; i<=nfields_2; i++) {
+   if ( form.elements[i].name == field ) {
+      idx = i ;
+      break;
+   }
+}
+
+nchars_2 = form.elements[idx].value.length + 6 ;
+energy_2 = form.elements[idx].value*cf_2[idx];
+
+for (var i=0; i<=nfields_2; i++) {
+   form.elements[i].value = trunc(energy_2/cf_2[i],nchars_2);
+}
+
+}
+
+
+function ord(x) {
+   return Math.floor(Math.log(Math.abs(x+1e-35))/2.303)
+}
+
+function trunc(x,n) {
+   return Math.floor(x*Math.pow(10,-ord(x)+n-1)+.5)/Math.pow(10,-ord(x)+n-1)
+}
+
+
+// variable declarations
+var cf = new Array();
+var nfields = conversion_factor(cf);
+var energy = 0.0;
+var nchars = 0
+
+
+var cf_2 = new Array();
+var nfields_2 = conversion_factor_2(cf_2);
+var energy_2 = 0.0;
+var nchars_2 = 0
+
+</SCRIPT>
+</HEAD>
+
+
+<BODY>
+<P>
+   <FORM NAME="Hartree" METHOD=POST>
+      <INPUT TYPE="number" NAME="eV" VALUE=0.0 onChange="displayInfo(this.form,this.name);">  eV<BR>
+      <INPUT TYPE="number" NAME="H" VALUE=0.0 onChange="displayInfo(this.form,this.name);">  Hartrees<BR>
+      <INPUT TYPE="number" NAME="kJ" VALUE=0.0 onChange="displayInfo(this.form,this.name);">  kJ<BR>
+      <INPUT TYPE="number" NAME="kcal" VALUE=0.0 onChange="displayInfo(this.form,this.name);">  kcal<BR>
+      <INPUT TYPE="number" NAME="Rydberg" VALUE=0.0 onChange="displayInfo(this.form,this.name);">  Rydberg<BR>
+      </FORM>
+</P>
+
+<P>
+
+   <FORM NAME="Hartree" METHOD=POST>
+      <INPUT TYPE="number" NAME="eV_atom" VALUE=0.0 onChange="displayInfo_2(this.form,this.name);">  eV/atom<BR>
+      <INPUT TYPE="number" NAME="kJ_mol" VALUE=0.0 onChange="displayInfo_2(this.form,this.name);">  kJ/mol<BR>
+      <INPUT TYPE="number" NAME="kcal_mol" VALUE=0.0 onChange="displayInfo_2(this.form,this.name);">  kcal/mol<BR>
+      </FORM>
+
+</P>
+
+
+
+</BODY>
+
+
+</HTML>
+
